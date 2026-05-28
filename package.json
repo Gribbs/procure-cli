@@ -1,0 +1,63 @@
+{
+  "name": "procure-cli",
+  "version": "0.1.0",
+  "description": "Unofficial command-line client for the Procurify REST API.",
+  "main": "index.js",
+  "bin": {
+    "procure": "index.js"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "docs": "node scripts/generate-docs.js",
+    "commitlint": "commitlint --edit"
+  },
+  "keywords": [
+    "procurify",
+    "cli",
+    "oauth2",
+    "rest-api",
+    "procurement"
+  ],
+  "author": "Joel Gribble",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gribbs/procure-cli.git"
+  },
+  "homepage": "https://github.com/Gribbs/procure-cli#readme",
+  "bugs": {
+    "url": "https://github.com/Gribbs/procure-cli/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "inquirer": "^9.3.7",
+    "jmespath": "^0.16.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.2",
+    "eslint": "^9.10.0",
+    "jest": "^30.2.0",
+    "nock": "^14.0.0",
+    "semantic-release": "^24.0.0",
+    "tmp": "^0.2.3"
+  }
+}
