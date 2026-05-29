@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/Gribbs/procure-cli/compare/v0.1.0...v0.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* load OIDC-capable npm plugin for releases ([b944877](https://github.com/Gribbs/procure-cli/commit/b9448770f63232739252e3c8eea0972cfd781786))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
