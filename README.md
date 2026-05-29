@@ -11,6 +11,13 @@ set of targeted mutating actions for vendors and AP bills (PATCH) — see
 design; for one-off mutations beyond the named actions, use the escape hatch
 [`raw`](#raw-command-escape-hatch) command with an explicit method and body.
 
+> **API stability.** Commands fall into two tiers. **Supported** commands map to
+> endpoints in Procurify's published API documentation and are expected to be
+> stable. **Unstable** commands target methods, events, or properties that are
+> not in the published documentation. Per Procurify's own API disclaimer,
+> undocumented aspects of the API may change at any time and are relied on **at
+> your own risk** — unstable commands can break or be removed without notice.
+
 > **Disclaimer.** This is an independent, community-maintained tool. It is
 > **not** affiliated with, endorsed by, sponsored by, or supported by Procurify
 > Technologies Inc. "Procurify" is a trademark of its respective owner and is
@@ -18,8 +25,8 @@ design; for one-off mutations beyond the named actions, use the escape hatch
 > provided "as is", without warranty of any kind. **You** are responsible for
 > ensuring your use of the Procurify API complies with your own agreement with
 > Procurify (Subscription Services Agreement, API terms, and Acceptable Use
-> Policy). Procurify's API may change at any time, including endpoints and
-> behaviours that are not part of their published documentation.
+> Policy). Procurify may change its API at any time, including undocumented
+> endpoints and behaviour.
 
 ---
 
@@ -108,8 +115,9 @@ procure list-services
 
 ## Authentication
 
-Procurify uses **OAuth 2.0 client-credentials** (machine-to-machine). The
-provisioning flow is:
+Procurify uses the **OAuth 2.0 client-credentials** grant (machine-to-machine).
+Note that the credential inherits the permissions of the Procurify user who
+created the application. The provisioning flow is:
 
 1. **Sign in to Procurify as the user who will own the application.** The
    OAuth application is bound to whoever creates it, and runs with that user's
