@@ -2,8 +2,8 @@
 
 An unofficial command-line client for the [Procurify](https://www.procurify.com/)
 REST API. It is a thin convenience wrapper around Procurify's OAuth 2.0
-client-credentials API for engineers who need to inspect or reconcile tenant
-data from a terminal or a script.
+client-credentials API for finance, operations, and engineering staff who need
+to inspect or reconcile tenant data from a terminal or a script.
 
 It exposes read-only (GET) operations across Procurify's services, plus a small
 set of targeted mutating actions for vendors and AP bills (PATCH) — see
