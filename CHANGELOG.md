@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/Gribbs/procure-cli/compare/v0.1.1...v0.1.2) (2026-06-01)
+
+
+### Bug Fixes
+
+* redact client credentials from OAuth error output ([6ddf2e4](https://github.com/Gribbs/procure-cli/commit/6ddf2e49777cf889c9560fbdc5d213b8edbdf5ec))
+
 ## [0.1.1](https://github.com/Gribbs/procure-cli/compare/v0.1.0...v0.1.1) (2026-05-29)
 
 
