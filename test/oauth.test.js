@@ -59,6 +59,35 @@ describe('lib/oauth', () => {
       ).rejects.toThrow(/HTTP 401/);
     });
 
+    it('redacts client_id and client_secret echoed back in error bodies', async () => {
+      const secret = 'supersecretvalue1234';
+      const clientId = 'nIeayneGllGyilEeFkKhBzvgFZIwibAN';
+      const fakeFetch = async () =>
+        mockResponse({
+          status: 401,
+          body: {
+            data: { grant_type: 'client_credentials', client_id: clientId, client_secret: secret },
+            errors: { detail: { message: 'Unauthorized' } },
+          },
+        });
+
+      let caught;
+      try {
+        await oauth.fetchToken({ domain: 'acme', clientId, clientSecret: secret }, fakeFetch);
+      } catch (err) {
+        caught = err;
+      }
+
+      expect(caught).toBeInstanceOf(oauth.OAuthError);
+      expect(caught.message).not.toContain(secret);
+      expect(caught.message).not.toContain(clientId);
+      expect(caught.body).not.toContain(secret);
+      expect(caught.body).not.toContain(clientId);
+      // Last 4 chars preserved for diagnosability.
+      expect(caught.message).toContain('***ibAN');
+      expect(caught.message).toContain('***1234');
+    });
+
     it('throws when access_token missing', async () => {
       const fakeFetch = async () => mockResponse({ status: 200, body: {} });
       await expect(
